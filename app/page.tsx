@@ -40,10 +40,7 @@ const acquisitionChannels = [
 
 export default function KiiWiiLanding() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([
-    "뷰티",
-    "푸드",
-  ]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -254,7 +251,6 @@ export default function KiiWiiLanding() {
               </Label>
               <Input
                 id="name"
-                placeholder="홍길동"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 className={`h-12 border-gray-200 shadow-sm ${
@@ -275,7 +271,6 @@ export default function KiiWiiLanding() {
               </Label>
               <Input
                 id="phone"
-                placeholder="010-1234-5678"
                 value={formData.phone}
                 onChange={(e) => handleInputChange("phone", e.target.value)}
                 className={`h-12 border-gray-200 shadow-sm ${
@@ -297,7 +292,6 @@ export default function KiiWiiLanding() {
               <Input
                 id="email"
                 type="email"
-                placeholder="gildong123@kiiwii.kr"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
                 className={`h-12 border-gray-200 shadow-sm ${
@@ -322,7 +316,6 @@ export default function KiiWiiLanding() {
               </Label>
               <Input
                 id="platform"
-                placeholder="인스타그램"
                 value={formData.platform}
                 onChange={(e) => handleInputChange("platform", e.target.value)}
                 className={`h-12 border-gray-200 shadow-sm ${
@@ -343,7 +336,6 @@ export default function KiiWiiLanding() {
               </Label>
               <Input
                 id="activityName"
-                placeholder="길동이올시다"
                 value={formData.activityName}
                 onChange={(e) =>
                   handleInputChange("activityName", e.target.value)
@@ -368,7 +360,6 @@ export default function KiiWiiLanding() {
               </Label>
               <Input
                 id="accountUrl"
-                placeholder="insta.dasdafkfaakds123"
                 value={formData.accountUrl}
                 onChange={(e) =>
                   handleInputChange("accountUrl", e.target.value)
@@ -400,9 +391,7 @@ export default function KiiWiiLanding() {
                   className={`h-12 ${
                     errors.acquisitionChannel ? "border-red-500" : ""
                   }`}
-                >
-                  <SelectValue placeholder="경로를 선택해주세요" />
-                </SelectTrigger>
+                ></SelectTrigger>
                 <SelectContent>
                   {acquisitionChannels.map((channel) => (
                     <SelectItem key={channel} value={channel}>
@@ -428,7 +417,6 @@ export default function KiiWiiLanding() {
                 </Label>
                 <Input
                   id="otherChannel"
-                  placeholder="예: 지인 추천, 광고 등"
                   value={surveyData.otherChannelText}
                   onChange={(e) =>
                     handleSurveyChange("otherChannelText", e.target.value)
