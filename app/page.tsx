@@ -209,13 +209,14 @@ export default function KiiWiiLanding() {
       {/* Video Section */}
       <div className="w-full h-52 bg-black mb-6 relative">
         <iframe
-          className="w-full h-full"
-          src="https://www.youtube.com/embed/ScMzIvxBSi4"
-          title="KiiWii 플랫폼 소개 영상"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/D2-pJojoDi4?si=VroffSEXfNgj6qlE"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          className="absolute top-0 left-0 w-full h-full"
+        ></iframe>
+        z{" "}
       </div>
 
       {/* Content */}
