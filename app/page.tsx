@@ -184,20 +184,13 @@ export default function KiiWiiLanding() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="px-6 py-4">
-        <div className="flex items-center justify-between mb-4">
-          {currentStep > 1 && (
-            <button
-              onClick={handleBack}
-              className="flex items-center space-x-2 p-2 text-gray-600 hover:text-gray-800 transition-colors"
-            >
-              <ChevronLeft className="w-6 h-6" />
-              <span className="text-sm font-medium">이전</span>
-            </button>
-          )}
-          <div className="flex-1" />
-        </div>
-        <div className="w-22 h-8 bg-black mb-4 flex items-center justify-center">
-          <div className="text-white text-xs font-bold">KiiWii</div>
+        <div className="w-22 h-8 mb-4 flex items-left justify-left">
+          {/* 왼쪽에 이미지 출력 next에서 public -> kiiwii-logo.png */}
+          <img
+            src="/kiiwii-logo.png"
+            alt="KiiWii Logo"
+            className="h-6 w-auto"
+          />
         </div>
         <h1 className="text-lg font-bold text-black leading-tight mb-6">
           좋은 제품을 소개해
