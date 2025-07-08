@@ -383,19 +383,21 @@ export default function KiiWiiLanding() {
               </Label>
               <Select
                 value={surveyData.acquisitionChannel}
-                onValueChange={(value) =>
-                  handleSurveyChange("acquisitionChannel", value)
+                onValueChange={(v) =>
+                  handleSurveyChange("acquisitionChannel", v)
                 }
               >
                 <SelectTrigger
                   className={`h-12 ${
                     errors.acquisitionChannel ? "border-red-500" : ""
                   }`}
-                ></SelectTrigger>
+                >
+                  <SelectValue placeholder="선택하세요" />
+                </SelectTrigger>
                 <SelectContent>
-                  {acquisitionChannels.map((channel) => (
-                    <SelectItem key={channel} value={channel}>
-                      {channel}
+                  {acquisitionChannels.map((c) => (
+                    <SelectItem key={c} value={c}>
+                      {c}
                     </SelectItem>
                   ))}
                 </SelectContent>
