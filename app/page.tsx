@@ -208,8 +208,7 @@ export default function KiiWiiLanding() {
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           className="absolute top-0 left-0 w-full h-full"
-        ></iframe>
-        z{" "}
+        />
       </div>
 
       {/* Content */}
@@ -222,12 +221,12 @@ export default function KiiWiiLanding() {
             <Label className="text-sm font-medium text-gray-800 mb-3 block">
               관심 분야(복수 선택 가능)
             </Label>
-            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => handleCategoryToggle(category)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`h-10 px-3 text-sm font-medium rounded-lg text-nowrap flex items-center justify-center transition-colors ${
                     selectedCategories.includes(category)
                       ? "bg-[#D0FBE9] text-[#12EB90] border border-[#12EB90]"
                       : "bg-white text-gray-800 border border-gray-200 shadow-sm hover:bg-gray-50"
@@ -237,6 +236,7 @@ export default function KiiWiiLanding() {
                 </button>
               ))}
             </div>
+
             {errors.categories && (
               <p className="text-red-500 text-sm mt-2">{errors.categories}</p>
             )}
@@ -463,17 +463,31 @@ export default function KiiWiiLanding() {
           ))}
         </div>
 
-        {/* Action Button */}
-        <div className="pb-8">
-          <Button
-            onClick={currentStep === 4 ? handleSubmit : handleNext}
-            className="w-full h-12 bg-[#12EB90] hover:bg-[#10d182] text-gray-800 font-semibold rounded-lg transition-colors"
-          >
-            {currentStep === 1 && "신청하기"}
-            {currentStep === 2 && "다음"}
-            {currentStep === 3 && "다음"}
-            {currentStep === 4 && "신청완료"}
-          </Button>
+        {/* Bottom Navigation */}
+        <div className="flex flex-row items-center justify-between gap-4 pb-8">
+          {currentStep > 1 ? (
+            <>
+              <Button
+                onClick={handleBack}
+                className="w-1/2 h-12 bg-white text-gray-800 font-semibold rounded-lg border border-gray-300 shadow-sm hover:bg-gray-50 transition-colors"
+              >
+                이전 단계로
+              </Button>
+              <Button
+                onClick={currentStep === 4 ? handleSubmit : handleNext}
+                className="w-1/2 h-12 bg-[#12EB90] hover:bg-[#10d182] text-gray-800 font-semibold rounded-lg transition-colors"
+              >
+                {currentStep === 4 ? "제출하기" : "다음"}
+              </Button>
+            </>
+          ) : (
+            <Button
+              onClick={handleNext}
+              className="w-full h-12 bg-[#12EB90] hover:bg-[#10d182] text-gray-800 font-semibold rounded-lg transition-colors"
+            >
+              다음
+            </Button>
+          )}
         </div>
       </div>
     </div>
